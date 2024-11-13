@@ -1,0 +1,167 @@
+:root {
+    --cor-principal:#FFC0CB;
+    --cor-secundaria-titulo:#F08080;
+    --cor-branca:#fff;
+    --cor-texto:#333;
+    --cor-fundo:2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: var(--cor-texto);
+}
+header {
+    background-color: var(--cor-principal); 
+    padding: 20px;
+    text-align: center;
+}
+header h1{
+    color: var(--cor-branca);
+    text-shadow: var(--cor-fundo);
+    font-size: 2rem; /* Ajuste de tamanho para responsividade */
+    margin: 10px 0;
+}
+
+header img{
+    animation: pulse 3s infinite;
+    width: 60px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px; /* Centralizar imagem e adicionar espaço abaixo */
+
+}
+/* Animação de Pulse */
+@keyframes pulse {
+    0%, 100%{
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.intro {
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: center;
+    opacity: 0; /* Inicia invisível */
+    transform: translateY(20px); /* Inicia levemente deslocado para baixo */
+    animation: fadeInUp 1.5s ease-out forwards; /* Aplica a animação */
+}
+.intro h1{
+    text-shadow: var(--cor-fundo);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Começa fora da posição final */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Termina na posição final */
+    }
+}
+.gallery {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gallery h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+    text-shadow: var(--cor-fundo);
+}
+
+.gallery-scroll {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
+    gap: 10px;
+    max-height: 400px; /* Define uma altura máxima para o contêiner */
+    overflow-y: auto; /* Permite rolagem vertical */
+    padding: 10px 0;
+}
+
+.gallery-scroll img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    align-self: center; /* Centraliza verticalmente as imagens */
+    justify-self: center; /* Centraliza horizontalmente as imagens */
+}
+
+/* Personalização da barra de rolagem vertical */
+.gallery-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--cor-secundaria-titulo);
+    border-radius: 4px;
+}
+
+.video-section {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.video-section h2 {
+    text-shadow: var(--cor-fundo);
+    font-size: 1.8rem;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+}
+
+.video-section video {
+    width: 50%; /* Reduz a largura do vídeo para 50% do contêiner */
+    max-width: 300px; /* Define um limite de largura menor */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--cor-principal);
+    color: var(--cor-branca);
+    text-shadow: var(--cor-fundo);
+    margin-top: 20px;
+}
+
+/* Media Query para Telas Menores */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem; /* Reduzir o tamanho da fonte para telas menores */
+    }
+    header img {
+        width: 50px; /* Ajustar tamanho da imagem em telas pequenas */
+    }
+    .gallery h2 {
+        font-size: 1.5rem;
+    }
+
+    .gallery-scroll {
+        grid-template-columns: 1fr; /* Em telas pequenas, exibir uma imagem por linha */
+        max-height: 300px;
+    }
+
+    .gallery-scroll img {
+        max-width: 250px;
+    }
+    .video-section h2 {
+        font-size: 1.5rem; /* Reduz o tamanho do título em telas pequenas */
+    }
+
+    .video-section video {
+        width: 100%; /* Ajusta o vídeo para ocupar 100% da largura em telas menores */
+    }
+    
+}
